@@ -33,15 +33,7 @@ public class Lista {
         this.cursor=cursor;
     }
 
-    public void visita() {
-        cursor=head;
-        while (cursor!=null) {
-            System.out.println(cursor.getValue());
-            cursor=cursor.getNext();
-        }
-    }
-
-    public void inserisci(String value) {
+    public void accoda(String value) {
         Nodo nuovoNodo=new Nodo(value);
         if (head==null) {
             head=nuovoNodo;
@@ -55,35 +47,39 @@ public class Lista {
         size++;
     }
 
-    public void elimina(String value){
-        if (head==null) {
-            return;
+    public String visita() {
+        if (cursor == null) {
+            return null;
         }
 
-        if (head.getValue().equals(value)) {
-            head=head.getNext();
-            size--;
-            return;
+        String valore = cursor.getValue();
+        cursor = cursor.getNext();
+        return valore;
+    }
+
+    public String leggi(int indice) {
+        if (indice < 0 || indice >= size) {
+            return null;
         }
 
-        cursor=head;
-        while (cursor.getNext()!=null && !cursor.getNext().getValue().equals(value)) {
-            cursor = cursor.getNext();
-        }
+        Nodo x = head;
+        int i = 0;
 
-        if (cursor.getNext()!=null) {
-            cursor.setNext(cursor.getNext().getNext());
-            size--;
+        while (i < indice) {
+            x = x.getNext();
+            i++;
         }
+        return x.getValue();
     }
 
     public String toString() {
-       String risultato = "";
-         cursor = head;
-            while (cursor != null) {
-                risultato = risultato + cursor.getValue() + " ";
-                cursor = cursor.getNext();
-            }
+        Nodo x = head;
+        String risultato = "";
+
+        while (x != null) {
+            risultato = risultato + x.getValue() + " ";
+            x = x.getNext();
+        }
         return risultato;
     }
 }
