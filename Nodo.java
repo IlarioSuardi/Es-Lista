@@ -3,8 +3,8 @@ public class Nodo {
     private Nodo next;
 
     public Nodo(String value) {
-        this.value=value;
-        this.next=null;
+        this.value = value;
+        this.next = null;
     }
 
     public String getValue() {
@@ -16,10 +16,10 @@ public class Nodo {
     }
 
     public void setValue(String value) {
-        this.value=value;
+        this.value = value;
     }
 
     public void setNext(Nodo next) {
-        this.next=next;
+        this.next = next;
     }
 }
