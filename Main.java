@@ -11,6 +11,9 @@ public class Main {
         System.out.println("Elemento in posizione 1: " + lista.leggi(1));
 
         lista.setCursor(lista.getHead());
+        System.out.println("Visita 1: " + lista.visita());
+        System.out.println("Visita 2: " + lista.visita());
         System.out.println("Visita 3: " + lista.visita());
+        System.out.println("Visita 4: " + lista.visita());
     }
 }
