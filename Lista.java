@@ -4,9 +4,9 @@ public class Lista {
     private Nodo cursor;
 
     public Lista() {
-        this.size=0;
-        this.head=null;
-        this.cursor=null;
+        this.size = 0;
+        this.head = null;
+        this.cursor = null;
     }
 
     public int getSize() {
@@ -21,28 +21,21 @@ public class Lista {
         return cursor;
     }
 
-    public void setSize(int size) {
-        this.size=size;
-    }
-
-    public void setHead(Nodo head) {
-        this.head=head;
-    }
-
     public void setCursor(Nodo cursor) {
-        this.cursor=cursor;
+        this.cursor = cursor;
     }
 
     public void accoda(String value) {
-        Nodo nuovoNodo=new Nodo(value);
-        if (head==null) {
-            head=nuovoNodo;
+        Nodo nuovoNodo = new Nodo(value);
+
+        if (head == null) {
+            head = nuovoNodo;
         } else {
-            cursor=head;
-            while (cursor.getNext()!=null) {
-                cursor=cursor.getNext();
+            Nodo t = head;
+            while (t.getNext() != null) {
+                t = t.getNext();
             }
-            cursor.setNext(nuovoNodo);
+            t.setNext(nuovoNodo);
         }
         size++;
     }
@@ -62,23 +55,20 @@ public class Lista {
             return null;
         }
 
-        Nodo x = head;
-        int i = 0;
-
-        while (i < indice) {
-            x = x.getNext();
-            i++;
+        Nodo t = head;
+        for (int i = 0; i < indice; i++) {
+            t = t.getNext();
         }
-        return x.getValue();
+        return t.getValue();
     }
 
     public String toString() {
-        Nodo x = head;
+        Nodo t = head;
         String risultato = "";
 
-        while (x != null) {
-            risultato = risultato + x.getValue() + " ";
-            x = x.getNext();
+        while (t != null) {
+            risultato += t.getValue() + " ";
+            t = t.getNext();
         }
         return risultato;
     }
