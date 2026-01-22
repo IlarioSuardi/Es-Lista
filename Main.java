@@ -4,16 +4,25 @@ public class Main {
 
         lista.accoda("a");
         lista.accoda("b");
-        lista.accoda("c");
+        lista.accoda("d");
 
-        System.out.println("Lista: " + lista);
+        System.out.println("Lista iniziale: " + lista);
 
-        System.out.println("Elemento in posizione 1: " + lista.leggi(1));
+        lista.inserisci("c", 2);
+        lista.elimina(1);
+
+        System.out.println("Lista modificata: " + lista);
+
+        for(int i=0; i < lista.getSize(); i++) {
+            System.out.println("Elemento in posizione " + i + ": " + lista.leggi(i));
+        }
 
         lista.setCursor(lista.getHead());
-        System.out.println("Visita 1: " + lista.visita());
-        System.out.println("Visita 2: " + lista.visita());
-        System.out.println("Visita 3: " + lista.visita());
-        System.out.println("Visita 4: " + lista.visita());
+        System.out.println("Visite con il cursore:");
+        System.out.println(lista.visita());
+        System.out.println(lista.visita());
+        System.out.println(lista.visita());
+        System.out.println(lista.visita());
+
     }
 }
