@@ -84,29 +84,7 @@ public class Lista {
         }
         if (indice == 0) {
             head = head.getNext();
-        } else {
-            Nodo t = head;
-            for (int i = 0; i < indice - 1; i++) {
-                t = t.getNext();
-            }
-            t.setNext(t.getNext().getNext());
-        }
-        size--;
-    }
-
-    public void eliminazioneCompleta(String value) {
-        if (head == null) {
-            return;
-        }
-        Nodo t = head;
-        while (t.getNext() != null) {
-            if (t.getNext().getValue().equals(value)) {
-                t.setNext(t.getNext().getNext());
-                size--;
-            } else {
-                t = t.getNext();
-            }
-        }
+        } else
     }
 
     public String toString() {
