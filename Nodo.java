@@ -24,6 +24,6 @@ public class Nodo {
     }
 
     public String toString() {
-        return "Nodo[value = " + value + ", next = " + next + "]";
+        return "Nodo[value = " + value + "]";
     }
 }
