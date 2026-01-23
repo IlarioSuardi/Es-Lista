@@ -50,7 +50,7 @@ public class Lista {
 
     public String leggi(int indice) {
         if (indice < 0 || indice >= size) {
-            return null;
+            return "inserire un valore valido";
         }
         Nodo t = head;
         for (int i = 0; i < indice; i++) {
@@ -84,11 +84,47 @@ public class Lista {
         }
         if (indice == 0) {
             head = head.getNext();
-        } else
+        } else {
+            Nodo t = head;
+            for (int i = 0; i < indice - 1; i++) {
+                t = t.getNext();
+            }
+            t.setNext(t.getNext().getNext());
+        }
+        size--;
+    }
+
+    public void eliminazioneCompleta(String value) {
+        while (head != null && head.getValue().equals(value)) {
+            head = head.getNext();
+            size--;
+        }
+        if (head == null) return;
+        Nodo t = head;
+        while (t.getNext() != null) {
+            if (t.getNext().getValue().equals(value)) {
+                t.setNext(t.getNext().getNext());
+                size--;
+            } else {
+                t = t.getNext();
+            }
+        }
+    }
+
+    public int ricerca(String valore) {
+        Nodo t = head;
+        int indice = 0;
+        while (t != null) {
+            if (t.getValue().equals(valore)) {
+                return indice;
+            }
+            t = t.getNext();
+            indice++;
+        }
+        return -1;
     }
 
     public String toString() {
         return "[size = " + size + ", head = " + head + "cursor = " + cursor + "]";
     }
 }
-
