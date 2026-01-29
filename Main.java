@@ -34,7 +34,13 @@ public class Main {
 
         //visita con cursore
         lista.setCursor(lista.getHead());
-        System.out.println("VISITA CON IL CURSORE: " + lista.visita() + ", " + lista.visita() + ", " + lista.visita() + ", " + lista.visita());
+        System.out.println("VISITA CON IL CURSORE: " + lista.visita() + ", " + lista.visita());
 
+        //inserimento ordinato
+        lista.inserimentoOrdinato("b");
+        lista.inserimentoOrdinato("a");
+        lista.inserimentoOrdinato("z");
+        lista.setCursor(lista.getHead());
+        System.out.println("INSERISCI ORDINATO: Lista: " + lista.visita() + ", " + lista.visita() + ", " + lista.visita() + ", " + lista.visita() + ", " + lista.visita());
     }
 }

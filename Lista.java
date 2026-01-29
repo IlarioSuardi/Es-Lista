@@ -124,6 +124,31 @@ public class Lista {
         return -1;
     }
 
+    public void inserimentoOrdinato(String value) {
+        Nodo nuovo = new Nodo(value);
+
+        if (head == null || head.getValue().compareTo(value) > 0) {
+            nuovo.setNext(head);
+            head = nuovo;
+            size++;
+            return;
+        }
+
+        Nodo corrente = head;
+
+        while (corrente.getNext() != null) {
+            if (corrente.getNext().getValue().compareTo(value) > 0) {
+                break;
+            }
+
+            corrente = corrente.getNext();
+        }
+
+        nuovo.setNext(corrente.getNext());
+        corrente.setNext(nuovo);
+        size++;
+    }
+
     public String toString() {
         return "[size = " + size + ", head = " + head + "cursor = " + cursor + "]";
     }
